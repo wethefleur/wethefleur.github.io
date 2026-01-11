@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We The Fleur - Juice Bar Sehat Serang</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0e783a;
+            --primary-dark: #0b5f30;
+            --secondary: #f1f8e9;
+            --accent: #ff7675;
+            --light: #ffffff;
+            --dark: #2d3436;
+            --gray: #636e72;
+            --shadow: 0 5px 15px rgba(39, 174, 96, 0.1);
+            --radius: 10px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-box {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 22px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-sub {
+            font-size: 12px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(4, 114, 50, 0.9) 0%, rgba(33, 150, 83, 0.9) 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tagline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 25px;
+            border-radius: 30px;
+            margin-bottom: 30px;
+        }
+
+        .tagline i {
+            color: var(--secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: white;
+            color: var(--primary);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Section */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* Menu Section */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(39, 174, 96, 0.15);
+        }
+
+        .menu-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .menu-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-method {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 500;
+            display: inline-block;
+            padding: 3px 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            margin-top: 5px;
+        }
+
+        .menu-content {
+            padding: 20px;
+        }
+
+        .ingredients {
+            margin-bottom: 15px;
+        }
+
+        .ingredient-tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: var(--primary-dark);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 3px;
+            font-weight: 500;
+        }
+
+        .method-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        .method-badge.blend {
+            background: #ffeaa7;
+            color: #d35400;
+        }
+
+        .method-badge.juicer {
+            background: #d1f2eb;
+            color: #148f77;
+        }
+
+        /* Locations */
+        .locations {
+            background: var(--secondary);
+        }
+
+        .location-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+        }
+
+        .location-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary);
+        }
+
+        .location-name {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .location-name i {
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        .location-name h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .location-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .location-info i {
+            color: var(--primary);
+            width: 20px;
+        }
+
+        /* Contact */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Fruit Pattern Background */
+        .fruit-pattern {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="20" r="8" fill="%2327ae60" opacity="0.1"/><circle cx="80" cy="40" r="10" fill="%2327ae60" opacity="0.1"/><circle cx="40" cy="80" r="12" fill="%2327ae60" opacity="0.1"/><circle cx="60" cy="20" r="6" fill="%2327ae60" opacity="0.1"/><circle cx="20" cy="60" r="9" fill="%2327ae60" opacity="0.1"/></svg>');
+            background-repeat: repeat;
+            background-size: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 25px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo-box {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo-main {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .footer-logo-sub {
+            font-size: 11px;
+            color: #95a5a6;
+            font-weight: 500;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .location-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .location-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .location-card {
+                padding: 20px;
+            }
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-box">WTF</div>
+                <div class="logo-text">
+                    <div class="logo-main">We The Fleur</div>
+                    <div class="logo-sub">Juice Bar</div>
+                </div>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#home">Beranda</a>
+                <a href="#menu">Menu</a>
+                <a href="#locations">Lokasi</a>
+                <a href="#contact">Kontak</a>
+            </nav>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="tagline">
+                <i class="fas fa-leaf"></i>
+                <span>100% Natural • No Sugar • No Milk</span>
+            </div>
+            
+            <h1>Segarnya We The Fleur</h1>
+            
+            <p>
+                Jus sehat dari buah-buahan segar pilihan tanpa tambahan gula dan susu. 
+                Nikmati kesegaran alami dalam setiap tegukan, baik yang di-blend maupun di-juicer.
+            </p>
+            
+            <a href="#menu" class="btn">Lihat Menu</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Menu We The Fleur</h2>
+                <p style="color: var(--gray); margin-top: 10px;">Tersedia menu blend dan juicer</p>
+            </div>
+            
+            <div class="menu-grid" id="menu-container">
+                <!-- Menu items will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section id="locations" class="locations fruit-pattern">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lokasi Kami</h2>
+            </div>
+            
+            <div class="location-cards">
+                <div class="location-card">
+                    <div class="location-name">
+                        <i class="fas fa-store"></i>
+                        <h3>Warjok Serang</h3>
+                    </div>
+                    <div class="location-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. KH Abdul Fatah Hasan No.29, Cipare</p>
+                        <p><i class="fas fa-clock"></i> Setiap Hari: 07:00 - 00:00 WIB</p>
+                        <p><i class="fas fa-phone"></i> 0838-2996-5648</p>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-name">
+                        <i class="fas fa-store"></i>
+                        <h3>Citraland Puri Serang</h3>
+                    </div>
+                    <div class="location-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Taman Puri Indah Blok C1 No.5, Serang</p>
+                        <p><i class="fas fa-clock"></i> Setiap Hari: 07:00 - 23:00 WIB</p>
+                        <p><i class="fas fa-phone"></i> 0838-2996-5648</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hubungi Kami</h2>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Telepon & WhatsApp</h3>
+                    <p>0838-2996-5648</p>
+                    <a href="https://wa.me/6283829965648" class="btn" style="margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+                    </a>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>wethefleur@gmail.com</p>
+                    <a href="mailto:wethefleur@gmail.com" class="btn" style="margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;">
+                        <i class="fas fa-envelope"></i> Kirim Email
+                    </a>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Jam Operasional</h3>
+                    <p>Warjok: 07:00 - 00:00 WIB</p>
+                    <p>Citraland: 07:00 - 23:00 WIB</p>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: var(--gray);">
+                        Buka Setiap Hari
+                    </p>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/wethefleur" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/6283829965648" class="social-icon" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.tiktok.com/@wethefleur" class="social-icon" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <div class="footer-logo-box">WTF</div>
+                        <div class="footer-logo-text">
+                            <div class="footer-logo-main">We The Fleur</div>
+                            <div class="footer-logo-sub">Fresh Juice Bar</div>
+                        </div>
+                    </div>
+                    <p>Menyajikan kesegaran alami tanpa gula tambahan dan susu. Healthy juice for healthy life.</p>
+                </div>
+                
+                <div>
+                    <h4>Lokasi</h4>
+                    <p><strong>Warjok Serang</strong><br>
+                    Jl. KH Abdul Fatah Hasan No.29, Cipare<br>
+                    07:00 - 00:00 WIB</p>
+                    
+                    <p><strong>Citraland Puri Serang</strong><br>
+                    Taman Puri Indah Blok C1 No.5, Serang<br>
+                    07:00 - 23:00 WIB</p>
+                </div>
+                
+                <div>
+                    <h4>Kontak</h4>
+                    <p>Telepon/WhatsApp:<br>
+                    0838-2996-5648</p>
+                    
+                    <p>Email:<br>
+                    wethefleur@gmail.com</p>
+                    
+                    <h4 style="margin-top: 15px;">Follow Kami</h4>
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <a href="https://www.instagram.com/wethefleur" style="color: #95a5a6;" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/6283829965648" style="color: #95a5a6;" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@wethefleur" style="color: #95a5a6;" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> We The Fleur Juice Bar - Serang. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        // Menu Data - Sorted Alphabetically
+        const menuItems = [
+            { code: "ALPIS", name: "ALPIS", method: "blend", ingredients: ["Alpukat", "Pisang", "Air Kelapa"] },
+            { code: "AVOCADO", name: "AVOCADO", method: "blend", ingredients: ["Alpukat", "Air Kelapa"] },
+            { code: "BANBER", name: "BANBER", method: "blend", ingredients: ["Pisang", "Stroberi", "Air Kelapa"] },
+            { code: "BANBERNAS", name: "BANBERNAS", method: "blend", ingredients: ["Pisang", "Stroberi", "Nanas"] },
+            { code: "BANDA", name: "BANDA", method: "blend", ingredients: ["Pisang", "Buah Naga", "Air Kelapa"] },
+            { code: "BARIMUNA", name: "BARIMUNA", method: "juicer", ingredients: ["Bayam", "Apel", "Celery", "Timun", "Nanas"] },
+            { code: "BAYAM", name: "BAYAM", method: "juicer", ingredients: ["Bayam", "Semangka", "Stroberi", "Nanas"] },
+            { code: "BIPELNAS", name: "BIPELNAS", method: "juicer", ingredients: ["Bit", "Apel", "Nanas"] },
+            { code: "CARROT", name: "CARROT", method: "juicer", ingredients: ["Celery", "Nanas", "Wortel"] },
+            { code: "CELERY", name: "CELERY", method: "juicer", ingredients: ["Celery", "Pir", "Nanas"] },
+            { code: "COCOLEMON", name: "COCOLEMON", method: "juicer", ingredients: ["Air Kelapa", "Lemon", "Chia Seed"] },
+            { code: "GANAS", name: "GANAS", method: "blend", ingredients: ["Mangga", "Nanas"] },
+            { code: "HIMALAYA", name: "HIMALAYA", method: "juicer", ingredients: ["Air Kelapa", "Garam Himalaya"] },
+            { code: "KALE", name: "KALE", method: "juicer", ingredients: ["Kale", "Timun", "Nanas", "Celery", "Apel"] },
+            { code: "KALTIM", name: "KALTIM", method: "juicer", ingredients: ["Kale", "Timun", "Apel", "Lemon"] },
+            { code: "MANGBAN", name: "MANGBAN", method: "blend", ingredients: ["Mangga", "Pisang", "Air Kelapa"] },
+            { code: "MANGGOLIA", name: "MANGGOLIA", method: "blend", ingredients: ["Mangga", "Air Kelapa", "Sunkist"] },
+            { code: "NABATI", name: "NABATI", method: "juicer", ingredients: ["Bayam", "Timun", "Nanas"] },
+            { code: "NAGASAKI", name: "NAGASAKI", method: "blend", ingredients: ["Buah Naga", "Sunkist"] },
+            { code: "NAVOCADO", name: "NAVOCADO", method: "blend", ingredients: ["Buah Naga", "Alpukat"] },
+            { code: "NAGGAVIA", name: "NAGGAVIA", method: "blend", ingredients: ["Buah Naga", "Mangga"] },
+            { code: "PIRBER", name: "PIRBER", method: "juicer", ingredients: ["Pir", "Stroberi"] },
+            { code: "PINADA", name: "PINADA", method: "juicer", ingredients: ["Nanas", "Air Kelapa", "Garam Himalaya"] },
+            { code: "POKCOY", name: "POKCOY", method: "juicer", ingredients: ["Pocoy", "Pir", "Nanas"] },
+            { code: "SELIA", name: "SELIA", method: "juicer", ingredients: ["Semangka", "Lemon"] },
+            { code: "SEASONKIST", name: "SEASONKIST", method: "juicer", ingredients: ["Jeruk Musiman", "Sunkist"] },
+            { code: "SPINADIA", name: "SPINADIA", method: "juicer", ingredients: ["Semangka", "Nanas"] },
+            { code: "SPINBER", name: "SPINBER", method: "juicer", ingredients: ["Semangka", "Nanas", "Stroberi"] },
+            { code: "SPIRULINA", name: "SPIRULINA", method: "juicer", ingredients: ["Ekstrak Spirulina", "Lemon", "Air Kelapa", "Garam Himalaya"] },
+            { code: "STEVIA", name: "STEVIA", method: "juicer", ingredients: ["Semangka", "Stevia"] },
+            { code: "SUNPIPLE", name: "SUNPIPLE", method: "juicer", ingredients: ["Apel", "Nanas", "Sunkist"] },
+            { code: "WOPELKIST", name: "WOPELKIST", method: "juicer", ingredients: ["Wortel", "Apel", "Sunkist"] },
+            { code: "WOPELNAS", name: "WOPELNAS", method: "juicer", ingredients: ["Wortel", "Apel", "Nanas"] },
+            { code: "XIANG LIE", name: "XIANG LIE", method: "juicer", ingredients: ["Pir", "Lemon"] }
+        ];
+
+        // Sort menu alphabetically
+        menuItems.sort((a, b) => a.name.localeCompare(b.name));
+
+        // Render menu items
+        function renderMenuItems() {
+            const container = document.getElementById('menu-container');
+            container.innerHTML = '';
+            
+            menuItems.forEach((item, index) => {
+                const menuItem = document.createElement('div');
+                menuItem.className = 'menu-item';
+                
+                menuItem.innerHTML = `
+                    <div class="menu-header">
+                        <div class="menu-name">${item.name}</div>
+                        <div class="menu-method">${item.method.toUpperCase()}</div>
+                    </div>
+                    <div class="menu-content">
+                        <div class="ingredients">
+                            ${item.ingredients.map(ing => 
+                                `<span class="ingredient-tag">${ing}</span>`
+                            ).join('')}
+                        </div>
+                        <div class="method-badge ${item.method}">
+                            <i class="fas fa-${item.method === 'blend' ? 'blender' : 'wine-glass-alt'}"></i>
+                            ${item.method === 'blend' ? 'Blended' : 'Juiced'}
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(menuItem);
+            });
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '100%';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.background = 'white';
+            navLinks.style.padding = '20px';
+            navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+            navLinks.style.gap = '20px';
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', renderMenuItems);
+    </script>
+</body>
+</html>
